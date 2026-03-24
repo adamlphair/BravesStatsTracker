@@ -29,10 +29,44 @@ playerSearchInput.addEventListener('keypress', (e) => {
 
 // Initialize app on load
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    setupThemeToggle();
     loadAllData();
     // Refresh data every 6 hours
     setInterval(loadAllData, 6 * 60 * 60 * 1000);
 });
+
+// Dark mode theme functions
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        updateThemeIcon('dark');
+    } else {
+        updateThemeIcon('light');
+    }
+}
+
+function setupThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+}
+
+function toggleTheme() {
+    const isDarkMode = document.body.classList.toggle('dark-mode');
+    const theme = isDarkMode ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    updateThemeIcon(theme);
+}
+
+function updateThemeIcon(currentTheme) {
+    const icon = document.querySelector('.theme-icon');
+    if (icon) {
+        icon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    }
+}
 
 // Load all data
 async function loadAllData() {
