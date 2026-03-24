@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlanta Braves 2026 Stats Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <img src="img/Atlanta-Braves-Logo.svg" alt="Atlanta Braves Logo" class="braves-logo">
+                Atlanta Braves 2026
+            </h1>
+            <p class="subtitle">Season Stats & Analytics</p>
+        </header>
+
+        <main>
+            <!-- Stats Overview -->
+            <section class="overview-section">
+                <div class="card stats-card">
+                    <h2>Season Overview</h2>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <span class="stat-label">Record</span>
+                            <span class="stat-value" id="record">-</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Win %</span>
+                            <span class="stat-value" id="winPctg">-</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Playoff Odds</span>
+                            <span class="stat-value" id="playoffOdds">-</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Division Rank</span>
+                            <span class="stat-value" id="divisionRank">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card prediction-card">
+                    <h2>Team Predictions</h2>
+                    <div id="predictions">
+                        <p>Loading analytics...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Game & Recent Games -->
+            <section class="games-section">
+                <div class="card">
+                    <h2>Next Game</h2>
+                    <div id="nextGame" class="game-display">
+                        <p>Loading schedule...</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Recent Games</h2>
+                    <div id="recentGames" class="games-list">
+                        <p>Loading games...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Player Stats -->
+            <section class="player-section">
+                <div class="card">
+                    <h2>Player Stats Lookup</h2>
+                    <div class="search-box">
+                        <input 
+                            type="text" 
+                            id="playerSearch" 
+                            placeholder="Search player name..."
+                            class="search-input"
+                        >
+                        <button id="searchBtn" class="btn btn-primary">Search</button>
+                    </div>
+                    <div id="playerStats" class="player-stats-display"></div>
+                </div>
+            </section>
+
+            <!-- Division Standings -->
+            <section class="standings-section">
+                <div class="card">
+                    <h2>NL East Standings</h2>
+                    <div id="standings" class="standings-table">
+                        <p>Loading standings...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Last updated: <span id="lastUpdate">-</span></p>
+            <p class="small">Data from MLB-StatsAPI • Updated daily</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
